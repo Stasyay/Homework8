@@ -32,6 +32,7 @@ void PrintMatrix(int[,] matrix)
 int RealeseMatrix(int[,] matrix)
 {
     int MinRowSum = 0;
+    int Row = 0;
     for (int i = 0; i < matrix.GetLength(1); i++)
     {
         MinRowSum = MinRowSum + matrix[0, i];
@@ -44,9 +45,13 @@ int RealeseMatrix(int[,] matrix)
         {
             RowSum = RowSum + matrix[i, j];
         }
-        if (MinRowSum > RowSum) MinRowSum = RowSum;
+        if (MinRowSum > RowSum)
+        {
+            MinRowSum = RowSum;
+            Row = i;
+        }
     }
-    return MinRowSum;
+    return Row;
 }
 
 Console.Write("Введите кол-во строк: ");
